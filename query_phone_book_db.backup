@@ -1,0 +1,469 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 16.1
+-- Dumped by pg_dump version 16.1
+
+-- Started on 2024-01-26 22:08:53
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 218 (class 1259 OID 16453)
+-- Name: first_name; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.first_name (
+    first_name_id integer NOT NULL,
+    first_name_text character varying(50)
+);
+
+
+ALTER TABLE public.first_name OWNER TO postgres;
+
+--
+-- TOC entry 217 (class 1259 OID 16452)
+-- Name: first_name_first_name_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.first_name_first_name_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.first_name_first_name_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4831 (class 0 OID 0)
+-- Dependencies: 217
+-- Name: first_name_first_name_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.first_name_first_name_id_seq OWNED BY public.first_name.first_name_id;
+
+
+--
+-- TOC entry 224 (class 1259 OID 16488)
+-- Name: main_book; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.main_book (
+    main_book_id integer NOT NULL,
+    surname_id integer,
+    first_name_id integer,
+    patronymic_id integer,
+    street_id integer,
+    house_number integer,
+    house_corps character varying(50),
+    flat integer,
+    phone_number character varying(50)
+);
+
+
+ALTER TABLE public.main_book OWNER TO postgres;
+
+--
+-- TOC entry 223 (class 1259 OID 16487)
+-- Name: main_book_main_book_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.main_book_main_book_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.main_book_main_book_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4832 (class 0 OID 0)
+-- Dependencies: 223
+-- Name: main_book_main_book_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.main_book_main_book_id_seq OWNED BY public.main_book.main_book_id;
+
+
+--
+-- TOC entry 220 (class 1259 OID 16474)
+-- Name: patronymic; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.patronymic (
+    patronymic_id integer NOT NULL,
+    patronymic_text character varying(50)
+);
+
+
+ALTER TABLE public.patronymic OWNER TO postgres;
+
+--
+-- TOC entry 219 (class 1259 OID 16473)
+-- Name: patronymic_patronymic_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.patronymic_patronymic_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.patronymic_patronymic_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4833 (class 0 OID 0)
+-- Dependencies: 219
+-- Name: patronymic_patronymic_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.patronymic_patronymic_id_seq OWNED BY public.patronymic.patronymic_id;
+
+
+--
+-- TOC entry 222 (class 1259 OID 16481)
+-- Name: street; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.street (
+    street_id integer NOT NULL,
+    street_text character varying(50)
+);
+
+
+ALTER TABLE public.street OWNER TO postgres;
+
+--
+-- TOC entry 221 (class 1259 OID 16480)
+-- Name: street_street_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.street_street_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.street_street_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4834 (class 0 OID 0)
+-- Dependencies: 221
+-- Name: street_street_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.street_street_id_seq OWNED BY public.street.street_id;
+
+
+--
+-- TOC entry 216 (class 1259 OID 16446)
+-- Name: surname; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.surname (
+    surname_id integer NOT NULL,
+    surname_text character varying(50)
+);
+
+
+ALTER TABLE public.surname OWNER TO postgres;
+
+--
+-- TOC entry 215 (class 1259 OID 16445)
+-- Name: surname_surname_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.surname_surname_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.surname_surname_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4835 (class 0 OID 0)
+-- Dependencies: 215
+-- Name: surname_surname_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.surname_surname_id_seq OWNED BY public.surname.surname_id;
+
+
+--
+-- TOC entry 4655 (class 2604 OID 16456)
+-- Name: first_name first_name_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.first_name ALTER COLUMN first_name_id SET DEFAULT nextval('public.first_name_first_name_id_seq'::regclass);
+
+
+--
+-- TOC entry 4658 (class 2604 OID 16491)
+-- Name: main_book main_book_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.main_book ALTER COLUMN main_book_id SET DEFAULT nextval('public.main_book_main_book_id_seq'::regclass);
+
+
+--
+-- TOC entry 4656 (class 2604 OID 16477)
+-- Name: patronymic patronymic_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patronymic ALTER COLUMN patronymic_id SET DEFAULT nextval('public.patronymic_patronymic_id_seq'::regclass);
+
+
+--
+-- TOC entry 4657 (class 2604 OID 16484)
+-- Name: street street_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.street ALTER COLUMN street_id SET DEFAULT nextval('public.street_street_id_seq'::regclass);
+
+
+--
+-- TOC entry 4654 (class 2604 OID 16449)
+-- Name: surname surname_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.surname ALTER COLUMN surname_id SET DEFAULT nextval('public.surname_surname_id_seq'::regclass);
+
+
+--
+-- TOC entry 4819 (class 0 OID 16453)
+-- Dependencies: 218
+-- Data for Name: first_name; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.first_name VALUES (1, 'Андрей');
+INSERT INTO public.first_name VALUES (2, 'Семён');
+INSERT INTO public.first_name VALUES (3, 'Александр');
+INSERT INTO public.first_name VALUES (4, 'Елизавета');
+INSERT INTO public.first_name VALUES (5, 'Татьяна');
+INSERT INTO public.first_name VALUES (6, 'Екатерина');
+INSERT INTO public.first_name VALUES (7, 'Анна');
+INSERT INTO public.first_name VALUES (8, 'Антон');
+
+
+--
+-- TOC entry 4825 (class 0 OID 16488)
+-- Dependencies: 224
+-- Data for Name: main_book; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.main_book VALUES (2, 2, 2, 2, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.main_book VALUES (4, 3, 2, 1, NULL, NULL, NULL, NULL, '898789789');
+
+
+--
+-- TOC entry 4821 (class 0 OID 16474)
+-- Dependencies: 220
+-- Data for Name: patronymic; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.patronymic VALUES (1, 'Андреевич');
+INSERT INTO public.patronymic VALUES (2, 'Семёнович');
+INSERT INTO public.patronymic VALUES (3, 'Александрович');
+INSERT INTO public.patronymic VALUES (4, 'Алексеевич');
+INSERT INTO public.patronymic VALUES (5, 'Антонович');
+INSERT INTO public.patronymic VALUES (6, 'Игоревич');
+INSERT INTO public.patronymic VALUES (7, 'Григорьевич');
+INSERT INTO public.patronymic VALUES (8, 'Алексеевна');
+INSERT INTO public.patronymic VALUES (9, 'Евгеньевна');
+INSERT INTO public.patronymic VALUES (10, 'Александровна');
+
+
+--
+-- TOC entry 4823 (class 0 OID 16481)
+-- Dependencies: 222
+-- Data for Name: street; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.street VALUES (1, 'Мясницкая');
+INSERT INTO public.street VALUES (2, 'Покровка');
+INSERT INTO public.street VALUES (3, 'Мира');
+INSERT INTO public.street VALUES (4, 'Победы');
+INSERT INTO public.street VALUES (5, 'Тверская');
+INSERT INTO public.street VALUES (6, 'Баррикадная');
+INSERT INTO public.street VALUES (7, 'Петровка');
+INSERT INTO public.street VALUES (8, 'Неглинная');
+
+
+--
+-- TOC entry 4817 (class 0 OID 16446)
+-- Dependencies: 216
+-- Data for Name: surname; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.surname VALUES (1, 'Смирнов');
+INSERT INTO public.surname VALUES (2, 'Смирнова');
+INSERT INTO public.surname VALUES (3, 'Иванов');
+INSERT INTO public.surname VALUES (4, 'Иванова');
+INSERT INTO public.surname VALUES (5, 'Воробьёв');
+INSERT INTO public.surname VALUES (6, 'Воробьёва');
+INSERT INTO public.surname VALUES (7, 'Акунин');
+INSERT INTO public.surname VALUES (8, 'Акунина');
+
+
+--
+-- TOC entry 4836 (class 0 OID 0)
+-- Dependencies: 217
+-- Name: first_name_first_name_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.first_name_first_name_id_seq', 8, true);
+
+
+--
+-- TOC entry 4837 (class 0 OID 0)
+-- Dependencies: 223
+-- Name: main_book_main_book_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.main_book_main_book_id_seq', 4, true);
+
+
+--
+-- TOC entry 4838 (class 0 OID 0)
+-- Dependencies: 219
+-- Name: patronymic_patronymic_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.patronymic_patronymic_id_seq', 10, true);
+
+
+--
+-- TOC entry 4839 (class 0 OID 0)
+-- Dependencies: 221
+-- Name: street_street_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.street_street_id_seq', 8, true);
+
+
+--
+-- TOC entry 4840 (class 0 OID 0)
+-- Dependencies: 215
+-- Name: surname_surname_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.surname_surname_id_seq', 8, true);
+
+
+--
+-- TOC entry 4662 (class 2606 OID 16458)
+-- Name: first_name first_name_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.first_name
+    ADD CONSTRAINT first_name_pkey PRIMARY KEY (first_name_id);
+
+
+--
+-- TOC entry 4668 (class 2606 OID 16493)
+-- Name: main_book main_book_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.main_book
+    ADD CONSTRAINT main_book_pkey PRIMARY KEY (main_book_id);
+
+
+--
+-- TOC entry 4664 (class 2606 OID 16479)
+-- Name: patronymic patronymic_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patronymic
+    ADD CONSTRAINT patronymic_pkey PRIMARY KEY (patronymic_id);
+
+
+--
+-- TOC entry 4666 (class 2606 OID 16486)
+-- Name: street street_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.street
+    ADD CONSTRAINT street_pkey PRIMARY KEY (street_id);
+
+
+--
+-- TOC entry 4660 (class 2606 OID 16451)
+-- Name: surname surname_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.surname
+    ADD CONSTRAINT surname_pkey PRIMARY KEY (surname_id);
+
+
+--
+-- TOC entry 4669 (class 2606 OID 16499)
+-- Name: main_book main_book_first_name_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.main_book
+    ADD CONSTRAINT main_book_first_name_id_fkey FOREIGN KEY (first_name_id) REFERENCES public.first_name(first_name_id);
+
+
+--
+-- TOC entry 4670 (class 2606 OID 16504)
+-- Name: main_book main_book_patronymic_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.main_book
+    ADD CONSTRAINT main_book_patronymic_id_fkey FOREIGN KEY (patronymic_id) REFERENCES public.patronymic(patronymic_id);
+
+
+--
+-- TOC entry 4671 (class 2606 OID 16509)
+-- Name: main_book main_book_street_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.main_book
+    ADD CONSTRAINT main_book_street_id_fkey FOREIGN KEY (street_id) REFERENCES public.street(street_id);
+
+
+--
+-- TOC entry 4672 (class 2606 OID 16494)
+-- Name: main_book main_book_surname_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.main_book
+    ADD CONSTRAINT main_book_surname_id_fkey FOREIGN KEY (surname_id) REFERENCES public.surname(surname_id);
+
+
+-- Completed on 2024-01-26 22:08:53
+
+--
+-- PostgreSQL database dump complete
+--
+
