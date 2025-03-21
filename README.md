@@ -1,5 +1,34 @@
 # Phone book
-A phone book application that sends SQL queries to the postgre SQL database
-## Help
-In order to restore the phone directory database, you can use one of the "...backup" files. The file "phone_book_db.backup" for custom backup. The file "query_phone_book_db.backup" for plain backup. Instructions for restoring a database from backup: https://www.youtube.com/watch?v=TEdJLtNHpH0 
-There is a report on this project among the files.
+Небольшое приложение - телефонная книга, которое отправляет SQL-запросы в базу данных PostgreSQL
+## Описание
+Структура базы данных:
+
+<img src="https://github.com/user-attachments/assets/d40b8781-3e5e-45c1-b41f-d01cdf42cccb" width="600">
+
+Для добавления строки в дочернюю таблицу необходимо заполнить какие-то из полей (Фамилия, Имя, Отчество, Улица, Дом, Корпус, Квартира, Номер телефона) и нажать кнопку «Добавить»:
+
+<img src="https://github.com/user-attachments/assets/3f954e68-0789-42e8-a855-cf6f37737c2d" width="500">
+
+
+Для того, чтобы осуществить поиск по одному или нескольким критериям в таблице нужно заполнить поля, по которым необходимо произвести поиск, затем нажать на кнопку «Поиск»:
+
+<img src="https://github.com/user-attachments/assets/ab825698-0e81-4edb-ac81-bfbf0c14e8c3" width="500">
+
+После это будет выведено окно поиска, в котором будут находиться результаты поиска:
+
+<img src="https://github.com/user-attachments/assets/67369bc2-924b-4447-b2f2-9b5257e67805" width="500">
+
+Для изменения строки необходимо в выпадающем справа от кнопки «Изменить» списке выбрать id строки которую нужно изменить и ввести в поля (Фамилия, Имя, Отчество, Улица, Дом, Корпус, Квартира, Номер телефона) значения, которые будут в измененной строке, затем нажать кнопку «Изменить»:
+
+<img src="https://github.com/user-attachments/assets/50a45d37-42d4-4f5f-9c7c-d6d26ce32b22" width="500">
+
+Для удаления строки необходимо в выпадающем справа от кнопки «Удалить» списке выбрать id строки которую нужно удалить:
+
+<img src="https://github.com/user-attachments/assets/cfd42b69-e2ab-41f9-ac4b-7f34cd4a0f8c" width="500">
+
+При нажатии на одну из этих кнопок выведется окно с соответствующей родительской таблицей:
+
+<img src="https://github.com/user-attachments/assets/c084140c-3632-49c3-9edf-f06ff7d5c1ce" width="500">
+
+## Поддержка
+Для того, чтобы восстановить базу данных телефонного справочника можно использовать один из файлов "...backup". Файл "phone_book_db.backup" для custom backup. Файл "query_phone_book_db.backup" для plain backup. Инструкция по восстановлению базы данных из бэкапа: https://www.youtube.com/watch?v=TEdJLtNHpH0 
